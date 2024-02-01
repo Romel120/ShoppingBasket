@@ -16,7 +16,7 @@ export class ProductsComponent implements OnInit {
   isSidePanelVisible: boolean = false;
 
   productObj: any = {
-    "id": 0,
+    "id": "",
     "title": "",
     "price": 0,
     "description": "",
@@ -34,11 +34,12 @@ export class ProductsComponent implements OnInit {
     this.getAllProducts() ;
   }
 
-  getAllProducts(){
-    this.productServ.getAllProducts().subscribe((res : any) => {
-      this.productList = res ;
-    })
+  getAllProducts() {
+    this.productServ.getAllProducts().subscribe((res: any) => {
+      this.productList = res.map((product: any) => ({ ...product, id: product._id }));
+    });
   }
+  
 
   getAllCategory() {
     this.productServ.getAllCategories().subscribe((res: any) => {
@@ -47,7 +48,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onSave(){
-    if (this.productObj.id === 0) {
+    if (this.productObj.id === '') {
       // Creating a new product
       this.productServ.saveProducts(this.productObj).subscribe(
         (res: any) => {
@@ -66,7 +67,8 @@ export class ProductsComponent implements OnInit {
   }
 
   onUpdate() {
-    if (this.productObj.id !== 0) {
+    if (this.productObj.id !== null) {
+      console.log('Product ID before update:', this.productObj.id);
       this.productServ.updateProduct(this.productObj).subscribe(
         (res: any) => {
           alert('Product Updated');
@@ -82,6 +84,24 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  onDelete(obj: any) {
+    const isDelete = confirm("Do you want to delete this product?");
+    if (isDelete) {
+      this.productServ.deleteProduct(obj.id).subscribe(
+        (res: any) => {
+          alert('Product Deleted');
+          this.getAllProducts();  // Assuming you want to refresh the product list after deletion
+        },
+        (error) => {
+          console.error('Error deleting product:', error);
+          alert('Product deletion failed');
+        }
+      );
+    }
+  }
+  
+  
+
   onSaveCategory() {
     // Create a new category
     this.productServ.saveCategory({ name: this.productObj.category }).subscribe(
@@ -95,6 +115,9 @@ export class ProductsComponent implements OnInit {
       }
     );
   }
+
+  
+  
 
   
 

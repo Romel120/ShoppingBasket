@@ -42,7 +42,21 @@ const updateProduct = async (req, res) => {
 
 // Delete a product
 const deleteProduct = async (req, res) => {
-  // Implement the logic for deleting a product
+  try {
+    const productId = req.params.id;
+
+    // Add your logic to find and delete the product
+    const deletedProduct = await Product.findByIdAndDelete(productId);
+
+    if (!deletedProduct) {
+      return res.status(404).json({ error: 'Product not found' });
+    }
+
+    res.status(204).json(deletedProduct);
+  } catch (error) {
+    console.error('Error deleting product:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 };
 
 module.exports = {

@@ -2,6 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Constant } from '../constant/constant';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,9 +28,10 @@ export class ProductsService {
   }
 
   updateProduct(obj: any) {
-    return this.http.put(`${Constant.API_END_POINT}${Constant.METHODS.UPDATE_PRODUCT}/${obj.id}`, obj);
+    return this.http.put(`${Constant.API_END_POINT}${Constant.METHODS.UPDATE_PRODUCT_BY_ID}/${obj.id}`, obj);
   }
-  deleteProduct(productId: string) {
-    // Implement the logic for deleting a product
+  deleteProduct(productId: string): Observable<any> {
+    return this.http.delete(`${Constant.API_END_POINT}${Constant.METHODS.DELETE_PRODUCT_BY_ID}/${productId}`);
   }
+  
 }
