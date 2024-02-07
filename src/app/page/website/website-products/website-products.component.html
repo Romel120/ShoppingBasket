@@ -1,0 +1,39 @@
+<div class="jumbotron jumbotron-fluid text-white text-center bg-cover my-4 mx-auto">
+    <div class="container">
+    </div>
+  </div>
+
+  <div class="row" style="--bs-gutter-x: -0.5rem;">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <div class="row">
+                        Product List
+                   
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                  <div class="col-4" *ngFor="let i of productList">
+                    <div class="card my-2" style="height: 200px;">
+                      <div class="row no-gutters">
+                        <div class="col-md-6">
+                          <img class="card-img" style="height: 190px;" [src]="i.image" alt="Card image">
+                        </div>
+                        <div class="col-md-6">
+                          <div class="card-body">
+                            <h4 class="card-title text-wrap" style="font-size: 1rem;">{{i.title}}</h4>
+                            <p class="card-text">Price: {{i.price}}</p>
+                            <!-- <p class="card-text">Category: {{i.category}}</p> -->
+                            <button class="btn btn-primary mx-2">Add to cart</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+        </div>
+    </div>
+  

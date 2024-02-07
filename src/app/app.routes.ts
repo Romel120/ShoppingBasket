@@ -6,6 +6,7 @@ import { CategoryProductsComponent } from './page/website/category-products/cate
 import { CategoriesComponent } from './page/admin/categories/categories.component';
 import { LandingComponent } from './page/website/landing/landing.component';
 import { CustomerComponent } from './page/admin/customer/customer.component';
+import { WebsiteProductsComponent } from './page/website/website-products/website-products.component';
 
 export const routes: Routes = [
     {
@@ -18,12 +19,18 @@ export const routes: Routes = [
         component: LoginComponent
     },
     {
-        path : 'ShoppingBasket',
-        component: LandingComponent
-    },
-    {
-        path : 'products/:id',
-        component: CategoryProductsComponent
+        path : '' , 
+        component: LandingComponent,
+        children : [
+            {
+                path : 'ShoppingBasket',
+                component: WebsiteProductsComponent
+            },
+            {
+                path : 'products/:id',
+                component: CategoryProductsComponent
+            }
+        ]
     },
     {
         path : '' , 
