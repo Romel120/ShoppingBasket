@@ -12,13 +12,13 @@ import { ProductsService } from '../../../services/products/products.service';
 })
 export class WebsiteProductsComponent implements OnInit {
 
-  categoryList : any [] = [] ;
+  // categoryList : any [] = [] ;
   productList: any[] = [];
 
   constructor(private productServ: ProductsService , private router : Router) { }
 
   ngOnInit(): void {
-    this.getAllCategory() ;
+    // this.getAllCategory() ;
     this.getAllProducts();
   }
   getAllProducts() {
@@ -27,10 +27,10 @@ export class WebsiteProductsComponent implements OnInit {
     });
   }
 
-  getAllCategory() {
-    this.productServ.getAllCategories().subscribe((res: any) => {
-      this.categoryList = res;
-    });
+  // getAllCategory() {
+  //   this.productServ.getAllCategories().subscribe((res: any) => {
+  //     this.categoryList = res;
+  //   });
     
-  }
+  // }
 }
