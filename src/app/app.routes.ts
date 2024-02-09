@@ -7,6 +7,7 @@ import { CategoriesComponent } from './page/admin/categories/categories.componen
 import { LandingComponent } from './page/website/landing/landing.component';
 import { CustomerComponent } from './page/admin/customer/customer.component';
 import { WebsiteProductsComponent } from './page/website/website-products/website-products.component';
+import { CheckoutComponent } from './page/website/checkout/checkout.component';
 
 export const routes: Routes = [
     {
@@ -25,6 +26,10 @@ export const routes: Routes = [
             {
                 path : 'ShoppingBasket',
                 component: WebsiteProductsComponent
+            },
+            {
+                path : 'checkout',
+                component: CheckoutComponent
             },
             {
                 path : 'products/:id',
