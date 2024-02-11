@@ -165,36 +165,68 @@ a{
 
 
 
+.display-4 {
+    font-size: 2.5rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    
+  }
 
 
 
+:host {
+    display: block;
+  }
+.shopping-basket-intro {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1) , 0px -15px 10px 0px rgba(0, 0, 0, 0.1);
 
-
-
-
-
-
-
-
-
-
-
-
-
-.bg-cover {
-    background-image: url('https://img.freepik.com/free-vector/online-shopping-banner-with-3d-shopping-cart-clouds-social-icons-vector-illustration_548887-100.jpg?w=1380&t=st=1706969076~exp=1706969676~hmac=bfff66b03390481206c98b33c268b1ea19fe4d5fab2244c4e1cb23ed84833c0e'); /* Replace with your image URL */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 550px; /* Set the desired height for your banner */
-    width: auto;
+  }
+  
+  .shopping-basket-intro h2 {
+    color: #dc3545; /* Red title color */
+  }
+  
+  .shopping-basket-intro .text-danger {
+    color: #dc3545; /* Red text color */
+  }
+  
+  .shopping-basket-intro p {
+    font-size: 1.2rem;
+  }
+  
+  
+  
+  .slider-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .slider {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    animation: slide-animation 30s infinite linear;
   }
   
-  .bg-cover h1,
-  .bg-cover p {
-    margin: 0; /* Remove default margins for text */
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
   }
   
+  .slide img {
+    width: 50%;
+    height: 70vh;
+  }
+
+  
+  @keyframes slide-animation {
+    0% {
+      transform: translateX(100px);
+    }
+    50% {
+      transform: translateX(-400%);
+    }
+  }
+
+
+
+
+
+
