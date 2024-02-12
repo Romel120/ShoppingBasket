@@ -76,7 +76,15 @@
           <a class="btn btn-link" href="#"><i class="bi bi-cart icon-single"></i> <span class="badge badge-danger">3</span></a>
         </li>
         <li class="nav-item ml-md-3">
-          <a class="btn btn-primary" href="#"><i class="bi bi-person-circle mr-1"></i> Log In / Register</a>
+          <div *ngIf="isLoggedIn; else loginButtons">
+            <span style="margin-right: 10px;">Welcome, {{ username }}!</span>
+            <button class="btn btn-danger" (click)="logout()">Logout</button>
+          </div>
+          <ng-template #loginButtons>
+            <button type="button" class="btn btn-primary" routerLink="/auth-page">
+              <i class="bi bi-person-circle mr-1"></i> Log In / Register
+            </button>
+          </ng-template>
         </li>
       </ul>
     </div>
@@ -101,6 +109,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" routerLink="checkout">Checkout</a>
         </li>
         <!-- Add your other menu items here -->
       </ul>

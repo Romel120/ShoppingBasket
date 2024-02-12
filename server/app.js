@@ -4,6 +4,7 @@ const connectDB = require('./config/db');
 const cors = require('cors'); 
 const productsRouter = require('./routes/products');
 const categoriesRouter = require('./routes/categories');
+const customersRouter = require('./routes/customer'); 
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.options('*', cors());
 // Routes
 app.use('/api/products', productsRouter);
 app.use('/api/categories', categoriesRouter);
+app.use('/api/customers', customersRouter); 
 
 // Start the server
 const PORT = process.env.PORT || 3000;

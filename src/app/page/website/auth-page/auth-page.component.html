@@ -1,0 +1,48 @@
+<!-- auth-page.component.html -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6" style="box-shadow: 5px 13px 8px 1px rgba(0, 0, 0, 0.1);margin-right: 87px;">
+            <h2>Login</h2>
+            <form>
+              <!-- Login form fields -->
+              <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" [(ngModel)]="loginForm.username">
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" [(ngModel)]="loginForm.password">
+              </div>
+              <button type="submit" class="btn btn-primary" (click)="onLoginSubmit()">Login</button>
+            </form>
+          </div>
+ 
+       <div class="col-md-6" style="box-shadow: 5px 13px 8px 1px rgba(0, 0, 0, 0.1);">
+          <h2>Sign Up</h2>
+          <form>
+             <!-- Signup form fields -->
+<div class="form-group">
+    <label for="newUsername">Username:</label>
+    <input type="text" id="newUsername" name="newUsername" class="form-control" placeholder="Choose a username" [(ngModel)]="signupForm.newUsername">
+  </div> 
+  <div class="form-group">
+    <label for="newEmail">Email:</label>
+    <input type="email" id="newEmail" name="newEmail" class="form-control" placeholder="Enter your email" [(ngModel)]="signupForm.newEmail">
+  </div>
+  <div class="form-group">
+    <label for="newMobile">Mobile:</label>
+    <input type="tel" id="newMobile" name="newMobile" class="form-control" placeholder="Enter your mobile number" [(ngModel)]="signupForm.newMobile">
+  </div>
+  <div class="form-group">
+    <label for="newPassword">Password:</label>
+    <input type="password" id="newPassword" name="newPassword" class="form-control" placeholder="Choose a password" [(ngModel)]="signupForm.newPassword">
+  </div>
+  <!-- Add more signup form fields as needed -->
+  <button type="submit" class="btn btn-success" (click)="onSignupSubmit()">Sign Up</button>
+  
+          </form>
+       </div>
+    </div>
+ </div>
+ <br><br><br>
+ 
