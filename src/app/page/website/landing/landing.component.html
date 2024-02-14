@@ -104,7 +104,7 @@
             Category
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCategory">
-            <a  *ngFor="let category of categoryList" class="dropdown-item" href="" (click)="navigateToCategory(category._id)">{{category.name}}</a>
+            <a  *ngFor="let category of categoryList" class="dropdown-item" [routerLink]="['/products', category.name]">{{category.name}}</a>
           </div>
         </li>
         <li class="nav-item">

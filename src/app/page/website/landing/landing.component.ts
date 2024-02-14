@@ -37,7 +37,7 @@ getAllCategory() {
     });
   }
   navigateToCategory(id : any){
-    this.router.navigate(['/products' , id])
+    this.router.navigate([`ShoppingBasket/products/${id}`]) ;
   }
 
   logout(): void {

@@ -19,6 +19,11 @@ export class ProductsService {
     return this.http.post(Constant.API_END_POINT + Constant.METHODS.CREATE_PRODUCT , obj) ;
   }
 
+  getProductsByCategory(id: any): Observable<any[]> {
+    return this.http.get<any[]>(Constant.API_END_POINT + Constant.METHODS.GET_ALL_PRODUCT_BY_CATEGORY + id);
+  }
+
+
   getAllCategories() {
     return this.http.get(Constant.API_END_POINT + 'categories');
   }
@@ -30,6 +35,7 @@ export class ProductsService {
   updateProduct(obj: any) {
     return this.http.put(`${Constant.API_END_POINT}${Constant.METHODS.UPDATE_PRODUCT_BY_ID}/${obj.id}`, obj);
   }
+
   deleteProduct(productId: string): Observable<any> {
     return this.http.delete(`${Constant.API_END_POINT}${Constant.METHODS.DELETE_PRODUCT_BY_ID}/${productId}`);
   }
