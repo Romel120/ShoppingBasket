@@ -70,94 +70,61 @@ a{
 }
 
 /*-- COMPONENT --*/
-.card{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem 1rem;
-    border-radius: 1rem;
-    overflow: hidden;
+/* category-products.component.scss */
+
+.container {
+  margin-top: 50px;
 }
 
-.card__img{
-  width: 200px;
-  height: auto;
-  padding: 2rem 0px;
-  transition: 0.5s;
-}
-.card__name{
-  position: absolute;
-  left: 43%;
-  top: -64%;
-  width: 17%;
-  height: 105%;
-  writing-mode: vertical-rl;
-  transform: rotate(270deg);
-  text-align: center;
-  background-color: black;
-  color: #fff;
-  font-weight: bold;
-  transition: 0.5s;
-}
-.card__icon{
-    font-size: 1.5rem;
-    color: var(--dark-color);
-}
-.card__icon:hover{
-    color: var(--accent-color);
-}
-.card__precis{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    transition: .5s;
-}
-.card__preci{
-    display: block;
-    text-align: center;
-}
-.card__preci--before{
-    font-size: var(--smaller-font-size);
-    color: var(--accent-color);
-    margin-bottom: .25rem;
-}
-.card__preci--now{
-    font-size: var(--h3-font-size);
-    font-weight: bold;
-}
-/*Move left*/
-.card:hover{
-    box-shadow: 0 .5rem 1rem #D1D9E6;
-}
-.card:hover .card__name{
-  top: -44%;
-  left: 44%;
-}
-.card:hover .card__img{
-    // transform: rotate(30deg);
-    padding-top: 3.5rem;
-}
-// .card:hover .card__precis{
-//     margin-left: 3.5rem;
-//     padding: 0 1.5rem;
-// }
+.card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  overflow: hidden;
 
-
-/*-- MEDIA QUERIES --*/
-@media screen and (min-width: 1200px){
-    body{
-        margin: 3rem 0 0 0;
-    }
-    .title-shop{
-        margin: 0 5rem;
-    }
-    .bd-grid{
-        margin-left: auto;
-        margin-right: auto;
-    }
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
 }
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #555;
+}
+
+.card-footer {
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e1e1e1;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
 
 
 

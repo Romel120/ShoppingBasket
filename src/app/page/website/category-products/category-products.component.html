@@ -1,1 +1,26 @@
-<h1>category-products works!</h1>
+<!-- category-products.component.html -->
+
+<div class="container">
+    <h2 class="mt-3 mb-3">Category Products</h2>
+
+    <div *ngIf="products.length > 0; else noProducts" class="row">
+        <div *ngFor="let product of products" class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{{ product.image }}" class="card-img-top" style="object-fit: contain!important"
+                    alt="{{ product.name }}">
+                <div class="card-body">
+                    <h5 class="card-title text-danger ">{{ product.title }}</h5>
+                    <p class="card-text  text-secondary" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ product.description }}</p>
+                </div>
+                <div class="card-footer">
+                    <strong>Price: ${{ product.price }}</strong>
+                    <button class="btn btn-primary float-right">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #noProducts>
+        <p>No products available for this category.</p>
+    </ng-template>
+</div>

@@ -18,15 +18,22 @@ export class CategoryProductsComponent {
   constructor(private activatedRoute: ActivatedRoute, private prodSrv: ProductsService) {
     this.activatedRoute.params.subscribe((res: any) => {
       this.activeCategoryId = res.id;
-      console.log(this.activeCategoryId) ;
+      // console.log(this.activeCategoryId) ;
       this.loadProducts();
+      this.getAllProducts();
     });
   }
 
+  getAllProducts() {
+    this.prodSrv.getProductsByCategory(this.activeCategoryId).subscribe((res: any) => {
+      this.products = res.map((product: any) => ({ ...product, id: product._id }));
+    });
+  }
   loadProducts() {
     // debugger ;
     this.prodSrv.getProductsByCategory(this.activeCategoryId).subscribe((res: any) => {
-      this.products = res.data;
+      this.products = res.data || [];
+      console.log(this.products) ;
     });
   }
 }
